@@ -1,0 +1,126 @@
+.modalBackdrop {
+    position: fixed;
+    z-index: 30;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgb(5 10 16 / 74%);
+    padding: 18px;
+
+    .riskDialog {
+        width: min(100%, 425px);
+        border: 1px solid #594c34;
+        border-radius: 11px;
+        background: #1a232c;
+        padding: 21px;
+        box-shadow: 0 22px 75px rgb(0 0 0 / 45%);
+
+        .warningMark {
+            display: grid;
+            width: 33px;
+            height: 33px;
+            place-items: center;
+            border: 1px solid #886c38;
+            border-radius: 50%;
+            background: #3b3324;
+            color: #f2c669;
+            font-size: 14px;
+            font-weight: 850;
+        }
+
+        h2 {
+            margin-top: 12px;
+            color: #f2f3f5;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        p {
+            margin-top: 5px;
+            color: #bbc4ce;
+            font-size: 9px;
+            line-height: 1.65;
+        }
+
+        > pre {
+            overflow-x: auto;
+            margin-top: 10px;
+            border: 1px solid #374653;
+            border-radius: 6px;
+            background: #0e151c;
+            padding: 9px 10px;
+            color: #f1cc78;
+
+            code {
+                font-family: Consolas, "Courier New", monospace;
+                font-size: 9px;
+            }
+        }
+    }
+
+    .saferAlternative {
+        display: grid;
+        gap: 4px;
+        margin-top: 9px;
+        border-left: 2px solid #69b59b;
+        background: #1c302a;
+        padding: 8px 9px;
+
+        strong {
+            color: #adddc6;
+            font-size: 8px;
+        }
+
+        code {
+            overflow-wrap: anywhere;
+            color: #d4eee1;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 8px;
+        }
+    }
+
+    .copyOnlyNote {
+        color: #8e9ba8 !important;
+        font-size: 8px !important;
+    }
+
+    .dialogActions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 7px;
+        margin-top: 16px;
+
+        button {
+            min-height: 34px;
+            border: 1px solid #4a5864;
+            border-radius: 6px;
+            background: #222e38;
+            padding: 0 10px;
+            color: #d4dbe2;
+            font-size: 8px;
+            font-weight: 750;
+            transition: border-color 130ms ease, box-shadow 130ms ease;
+
+            &:hover {
+                border-color: #91b4a2;
+                box-shadow: 0 0 0 2px rgb(94 196 179 / 12%);
+            }
+
+            &:focus-visible {
+                outline: 2px solid #e8b85d;
+                outline-offset: 2px;
+            }
+
+            &:last-child {
+                border-color: #9a7840;
+                background: #66502c;
+                color: #fff0cb;
+
+                &:hover {
+                    border-color: #dfb75d;
+                    box-shadow: 0 0 0 2px rgb(232 184 93 / 16%);
+                }
+            }
+        }
+    }
+}
