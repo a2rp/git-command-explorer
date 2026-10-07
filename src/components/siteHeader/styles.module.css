@@ -1,0 +1,118 @@
+.siteHeader {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    height: 62px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid #344352;
+    background: rgb(17 24 32 / 96%);
+    padding: 0 max(22px, calc((100vw - 1160px) / 2));
+    color: #e8edf3;
+    backdrop-filter: blur(12px);
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: #f0f3f5;
+        font-size: 13px;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+
+        > span {
+            display: grid;
+            width: 30px;
+            height: 30px;
+            place-items: center;
+            border: 1px solid #527c6b;
+            border-radius: 8px;
+            background: #22382f;
+            color: #a8e6bd;
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+
+        a {
+            color: #aab5c1;
+            font-size: 10px;
+            font-weight: 700;
+            transition: color 130ms ease;
+
+            &:hover {
+                color: #c7efce;
+            }
+        }
+    }
+
+    .repository {
+        display: inline-flex;
+        min-height: 34px;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        border: 1px solid #4b5a68;
+        border-radius: 6px;
+        background: #202b36;
+        padding: 0 10px;
+        color: #e6ebf0;
+        font-size: 9px;
+        font-weight: 750;
+        white-space: nowrap;
+        transition: border-color 130ms ease, box-shadow 130ms ease;
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        &:hover {
+            border-color: #83b99f;
+            box-shadow: 0 0 0 2px rgb(94 196 179 / 11%);
+        }
+    }
+
+    @media (max-width: 520px) {
+        height: 56px;
+        gap: 8px;
+        padding-inline: 11px;
+
+        .brand {
+            gap: 6px;
+            font-size: 11px;
+        }
+
+        nav {
+            gap: 10px;
+
+            a {
+                font-size: 8px;
+            }
+        }
+
+        .repository {
+            width: 34px;
+            min-height: 32px;
+            padding: 0;
+            font-size: 0;
+
+            svg {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+}
