@@ -1,0 +1,288 @@
+.commandLibrary {
+    border: 1px solid #30404e;
+    border-radius: 10px;
+    background: #19232d;
+    box-shadow: 0 15px 45px rgb(0 0 0 / 14%);
+    padding: 17px;
+
+    .libraryHeader {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+
+        h2 {
+            color: #f0f3f5;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        p {
+            margin-top: 3px;
+            color: #9eabb7;
+            font-size: 9px;
+        }
+    }
+
+    .commandCount {
+        border: 1px solid #3b4a57;
+        border-radius: 999px;
+        background: #212d38;
+        padding: 4px 8px;
+        color: #b8c2ca;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 8px;
+        white-space: nowrap;
+    }
+
+    .searchBox {
+        display: flex;
+        min-height: 41px;
+        align-items: center;
+        gap: 8px;
+        margin-top: 13px;
+        border: 1px solid #3d4d5b;
+        border-radius: 7px;
+        background: #111922;
+        padding: 0 9px;
+        color: #9aa9b5;
+
+        > svg {
+            width: 15px;
+            height: 15px;
+            flex: 0 0 auto;
+        }
+
+        input {
+            width: 100%;
+            min-width: 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #eaf0f4;
+            font-size: 9px;
+
+            &::placeholder {
+                color: #73818e;
+            }
+
+            &:focus-visible {
+                outline: 1px solid #72b893;
+                outline-offset: 4px;
+            }
+        }
+
+        button {
+            display: grid;
+            width: 25px;
+            height: 25px;
+            flex: 0 0 auto;
+            place-items: center;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            background: transparent;
+            color: #9caab6;
+
+            svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            &:hover {
+                border-color: #465563;
+                box-shadow: 0 0 0 2px rgb(94 196 179 / 8%);
+            }
+        }
+    }
+
+    .categoryFilters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 10px;
+
+        button {
+            display: inline-flex;
+            min-height: 27px;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid #394957;
+            border-radius: 5px;
+            background: #202b36;
+            padding: 0 7px;
+            color: #aeb9c3;
+            font-size: 7px;
+            font-weight: 700;
+            transition: border-color 130ms ease, box-shadow 130ms ease;
+
+            span {
+                display: grid;
+                min-width: 16px;
+                height: 16px;
+                place-items: center;
+                border-radius: 999px;
+                background: #303d48;
+                color: #b8c3ca;
+                font-family: Consolas, "Courier New", monospace;
+                font-size: 7px;
+            }
+
+            &:hover {
+                border-color: #719183;
+                box-shadow: 0 0 0 2px rgb(94 196 179 / 8%);
+            }
+
+            &.activeFilter {
+                border-color: #729883;
+                background: #284035;
+                color: #cbf0d6;
+
+                span {
+                    background: #395d49;
+                    color: #e2f3e4;
+                }
+            }
+
+            &:focus-visible {
+                outline: 2px solid #e8b85d;
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .safetyNote {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        margin-top: 12px;
+        border: 1px solid #394c43;
+        border-radius: 7px;
+        background: #1d2d27;
+        padding: 9px 10px;
+
+        > span {
+            display: grid;
+            width: 24px;
+            height: 24px;
+            flex: 0 0 auto;
+            place-items: center;
+            border: 1px solid #466654;
+            border-radius: 6px;
+            background: #293f33;
+            color: #a8e6bd;
+
+            svg {
+                width: 13px;
+                height: 13px;
+            }
+        }
+
+        strong {
+            color: #c9ead2;
+            font-size: 8px;
+            font-weight: 800;
+        }
+
+        p {
+            margin-top: 2px;
+            color: #a2b9aa;
+            font-size: 7px;
+            line-height: 1.6;
+        }
+    }
+
+    .resultSummary {
+        margin-top: 12px;
+        color: #9eaab5;
+        font-size: 8px;
+    }
+
+    .commandGrid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .emptyState {
+        display: grid;
+        min-height: 210px;
+        justify-items: center;
+        align-content: center;
+        border: 1px dashed #42515f;
+        border-radius: 8px;
+        margin-top: 8px;
+        padding: 20px;
+        text-align: center;
+
+        > span {
+            display: grid;
+            width: 36px;
+            height: 36px;
+            place-items: center;
+            border: 1px solid #415349;
+            border-radius: 50%;
+            background: #22352c;
+            color: #a8e6bd;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        h3 {
+            margin-top: 9px;
+            color: #e7edf1;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        p {
+            margin-top: 4px;
+            color: #9da9b4;
+            font-size: 8px;
+        }
+
+        button {
+            min-height: 30px;
+            margin-top: 10px;
+            border: 1px solid #4f7861;
+            border-radius: 5px;
+            background: #2c4937;
+            padding: 0 9px;
+            color: #d5f0dc;
+            font-size: 8px;
+            font-weight: 750;
+
+            &:hover {
+                border-color: #83b89a;
+                box-shadow: 0 0 0 2px rgb(94 196 179 / 10%);
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .commandGrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 620px) {
+        padding: 13px;
+
+        .commandGrid {
+            grid-template-columns: 1fr;
+        }
+
+        .libraryHeader {
+            align-items: flex-start;
+        }
+
+        .commandCount {
+            margin-top: 3px;
+        }
+    }
+}
