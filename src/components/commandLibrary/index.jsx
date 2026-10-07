@@ -11,7 +11,7 @@ const CommandLibrary = () => {
     const normalizedQuery = query.trim().toLowerCase();
 
     const matchingCommands = gitCommands.filter((command) => {
-        const searchableText = [command.title, command.command, command.category, command.summary, command.details, command.example, command.warning, command.saferAlternative].filter(Boolean).join(" ").toLowerCase();
+        const searchableText = [command.title, command.command, command.category, command.risk, command.summary, command.details, command.example, command.warning, command.saferAlternative].filter(Boolean).join(" ").toLowerCase();
         return searchableText.includes(normalizedQuery);
     });
 
