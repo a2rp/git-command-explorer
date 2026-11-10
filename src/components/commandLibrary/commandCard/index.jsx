@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { LuCheck, LuChevronDown, LuCopy } from "react-icons/lu";
 import ConfirmRiskyCopy from "./confirmRiskyCopy/index.jsx";
 import styles from "./styles.module.css";
@@ -13,6 +13,7 @@ const riskClasses = {
 const CommandCard = ({ command, expanded, onToggle }) => {
     const [copyStatus, setCopyStatus] = useState("");
     const [confirmOpen, setConfirmOpen] = useState(false);
+    const copyButtonRef = useRef(null);
     const cardId = `command-details-${command.id}`;
 
     const copyCommand = useCallback(async () => {
@@ -25,11 +26,14 @@ const CommandCard = ({ command, expanded, onToggle }) => {
         window.setTimeout(() => setCopyStatus(""), 1800);
     }, [command.command]);
 
-    const cancelConfirmation = useCallback(() => setConfirmOpen(false), []);
+    const cancelConfirmation = useCallback(() => {
+        setConfirmOpen(false);
+        window.requestAnimationFrame(() => copyButtonRef.current?.focus());
+    }, []);
     const confirmCopy = useCallback(async () => {
         await copyCommand();
-        setConfirmOpen(false);
-    }, [copyCommand]);
+        cancelConfirmation();
+    }, [cancelConfirmation, copyCommand]);
 
     const startCopy = () => {
         if (command.risk === "High impact") setConfirmOpen(true);
@@ -49,7 +53,7 @@ const CommandCard = ({ command, expanded, onToggle }) => {
             <div className={styles.commandLine}><code>{command.command}</code></div>
             <div className={styles.cardActions}>
                 <button className={styles.detailsButton} type="button" onClick={onToggle} aria-expanded={expanded} aria-controls={cardId}>{expanded ? "Hide details" : "How it works"}</button>
-                <button className={styles.copyButton} type="button" onClick={startCopy}>
+                <button ref={copyButtonRef} className={styles.copyButton} type="button" onClick={startCopy}>
                     {copyStatus === "Copied" ? <LuCheck aria-hidden="true" /> : <LuCopy aria-hidden="true" />}
                     {copyStatus === "Copied" ? "Copied" : "Copy command"}
                 </button>

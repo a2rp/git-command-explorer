@@ -214,7 +214,7 @@ export const gitCommands = [
         risk: "Caution",
         summary: "Apply the newest stash to the working tree and remove it from the stash list.",
         details: "If the edits conflict with current files, resolve the conflicts before continuing. Use git stash apply if you want to keep the stash entry.",
-        example: "git stash apply",
+        example: "git stash pop",
         saferAlternative: "git stash apply",
     },
     {
@@ -274,7 +274,7 @@ export const gitCommands = [
         command: "git push --force-with-lease",
         risk: "High impact",
         summary: "Replace remote branch history only if the remote is still at the commit you expect.",
-        details: "This can remove commits from the shared branch. Coordinate with collaborators and inspect the branch before using it.",
+        details: "The lease compares the remote ref with your expected remote-tracking value, but background fetches can update that value. Coordinate with collaborators and inspect the fetched branch before rewriting shared history.",
         example: "git push --force-with-lease origin feat/my-branch",
         warning: "This rewrites remote history and can make other commits unreachable from the branch.",
         saferAlternative: "git push",
